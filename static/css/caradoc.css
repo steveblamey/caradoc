@@ -60,9 +60,14 @@ ul {
   list-style: none;
 }
 
-.navigation-list, .navigation-home {
+.navigation-list {
 	float: left;
-	margin-bottom: 0;
+	margin-bottom: 1rem;
+}
+
+.navigation-home {
+	float: left;
+	margin: 1rem 0 1rem;
 }
 
 .navigation-item {
@@ -117,6 +122,10 @@ ul {
 
 	.navigation {
 		line-height: 6.0rem;
+	}
+	
+	.navigation-home, .navigation-list {
+		margin: 0;
 	}
 
 	.navigation-list {
