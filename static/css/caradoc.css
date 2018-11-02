@@ -36,7 +36,6 @@ ul {
   top: 0;
   width: 100%;
   /*height: 6.0rem;*/
-  line-height: 6.0rem;
   display: inline-block;
   border-bottom: 0.1rem solid #d1d1d1;
   margin-bottom: 4.0rem;
@@ -45,10 +44,16 @@ ul {
 
 .home-link {
 	margin-right: 1rem;
+	float: left;
 }
 
 .tagline {
-	margin-left: 1rem;
+	float: left;
+}
+
+.tag-sep {
+	float: left;
+	display: none;
 }
 
 .navigation-list, .archive-list {
@@ -110,8 +115,22 @@ ul {
 /* Larger than mobile screen */
 @media (min-width: 40.0rem) {
 
+	.navigation {
+		line-height: 6.0rem;
+	}
+
 	.navigation-list {
 		float: right;
+	}
+
+	.tagline {
+		float: none;
+		margin-left: 1rem;
+		line-height: 6.0rem;
+	}
+
+	.tag-sep {
+		display: block;
 	}
 
 }

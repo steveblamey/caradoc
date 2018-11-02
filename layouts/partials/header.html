@@ -18,7 +18,7 @@
 	<main class="wrapper">
 			<nav class="navigation">
 				<section class="container">
-					<div class="navigation-home"><a class="home-link" href="{{ .Site.BaseURL }}"><strong>{{ .Site.Title }}</strong></a><span>·</span><span class="tagline">{{ .Site.Params.description }}</span></div>
+					<div class="navigation-home"><a class="home-link" href="{{ .Site.BaseURL }}"><strong>{{ .Site.Title }}</strong></a><span class="tag-sep">·</span><span class="tagline">{{ .Site.Params.description }}</span></div>
 					<ul class="navigation-list">
 						{{ range $i, $e := .Site.Menus.main.ByWeight }}{{ if $i }}<li class="navigation-item">·</li>{{ end }}<li class="navigation-item"><a href="{{ $e.URL | relURL }}">{{ $e.Name }}</a></li>{{ end }}
 					</ul>
