@@ -1,0 +1,12 @@
+name = "Caradoc"
+license = "MIT"
+licenselink = "https://github.com/steveblamey/caradoc/blob/master/LICENSE.md"
+description = "A blogging theme for Hugo"
+homepage = "https://github.com/steveblamey/caradoc/"
+tags = ["blog"]
+min_version = "0.37.1"
+
+[author]
+  name = "Steve Blamey"
+  homepage = "https://blog.steveblamey.co.uk"
+

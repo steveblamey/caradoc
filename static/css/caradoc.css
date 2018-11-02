@@ -1,0 +1,117 @@
+body {
+  font-family: 'PT serif', serif;
+  font-size: 1.8em;
+  line-height: 1.5;
+  color: #151515;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #3c3c3c;
+}
+
+a {
+  color: #991848;
+}
+
+pre {
+  border-left: 0.3rem solid #991848;
+}
+
+hr {
+  margin: 4.0rem 0;
+}
+
+ul {
+  list-style: circle outside;
+}
+
+.wrapper .container {
+  max-width: 80rem;
+}
+
+.navigation {
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  /*height: 6.0rem;*/
+  line-height: 6.0rem;
+  display: inline-block;
+  border-bottom: 0.1rem solid #d1d1d1;
+  margin-bottom: 4.0rem;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.home-link {
+	margin-right: 1rem;
+}
+
+.tagline {
+	margin-left: 1rem;
+}
+
+.navigation-list, .archive-list {
+  list-style: none;
+}
+
+.navigation-list, .navigation-home {
+	float: left;
+	margin-bottom: 0;
+}
+
+.navigation-item {
+  position: relative;
+  float: left;
+  margin-left: 1.0rem;
+  margin-bottom: 0;
+}
+
+.post-navigation {
+  font-family: 'Roboto Condensed', sans-serif;
+  margin-bottom: 4.0rem;
+  font-size: larger;
+}
+
+.footer {
+  width: 100%;
+  height: 6.0rem;
+  line-height: 6.0rem;
+  border-top: 0.1rem solid #d1d1d1;
+  margin-top: 4.0rem;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-align: center;
+}
+
+.footnotes, .taglist {
+  font-size: smaller;
+}
+
+.footnotes li {
+  list-style: decimal;
+  margin-bottom: 0.5rem;
+}
+
+.draft-mark {
+  margin-left: 1rem;
+  font-size: 50%;
+  background: red;
+  padding: 3px 6px 3px 6px;
+  border-radius: 6px;
+  color: #fff;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.gist {
+  padding-top: 1rem;
+}
+
+/* Larger than mobile screen */
+@media (min-width: 40.0rem) {
+
+	.navigation-list {
+		float: right;
+	}
+
+}

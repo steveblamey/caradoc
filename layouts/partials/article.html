@@ -1,0 +1,8 @@
+    <article>
+        <h2>{{ if .home }}<a href="{{ .page.Permalink }}">{{ .page.Title }}</a>{{ else }}{{ .page.Title }}{{ end }}{{ if .page.Params.draft }}<span class="draft-mark" title="Will not be public">draft</span>{{ end }}</h2>
+		{{ if eq .page.Type "posts" }}<h4><time datetime="{{ .page.Date.Format "2006-01-02" }}" itemprop="datePublished" class="date">{{ .page.Date.Format "02 Jan 2006" }}</time></h4>{{ end }}
+		<div>
+			{{ .page.Content }}
+		</div>
+		{{ partial "tags.html" .page }}
+	</article>

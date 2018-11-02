@@ -1,0 +1,6 @@
+{{ partial "header.html" . }}
+{{ partial "article.html" (dict "page" . "home" false) }}
+<div class="post-navigation clearfix">
+	{{ if .NextInSection }} <a class="float-left" href="{{.NextInSection.Permalink}}">← previous</a> {{ end }} {{ if .PrevInSection }} <a class="float-right"href="{{.PrevInSection.Permalink}}">next →</a> {{ end }}
+</div>
+{{ partial "footer.html" . }}

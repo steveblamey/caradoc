@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en-gb" }}">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{{ .Title }}</title>
+	{{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+	<link rel="stylesheet" href="{{ .Site.BaseURL }}/css/normalize.css">
+	<link rel="stylesheet" href="{{ .Site.BaseURL }}/css/milligram.css">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif|Roboto+Condensed" rel="stylesheet">
+	<link rel="stylesheet" href="{{ .Site.BaseURL }}/css/caradoc.css">
+	<link rel="stylesheet" href="{{ .Site.BaseURL }}/css/syntax.css">
+	<link href='{{ "/feed.xml" | relURL }}' rel="alternate" type="application/atom+xml" title="{{ .Site.Title }}" />
+</head>
+<body>
+	<main class="wrapper">
+			<nav class="navigation">
+				<section class="container">
+					<div class="navigation-home"><a class="home-link" href="{{ .Site.BaseURL }}"><strong>{{ .Site.Title }}</strong></a><span>·</span><span class="tagline">{{ .Site.Params.description }}</span></div>
+					<ul class="navigation-list">
+						{{ range $i, $e := .Site.Menus.main.ByWeight }}{{ if $i }}<li class="navigation-item">·</li>{{ end }}<li class="navigation-item"><a href="{{ $e.URL | relURL }}">{{ $e.Name }}</a></li>{{ end }}
+					</ul>
+				</section>
+			</nav>
+			<section class="container">

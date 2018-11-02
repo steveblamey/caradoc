@@ -1,0 +1,13 @@
+{{ partial "header.html" . }}
+    <ul class="archive-list">
+    {{ with .Site.GetPage "section" "posts" }}
+        {{ range .Pages.GroupByDate "2006" }}
+            <h3>{{ .Key }}</h3>
+            {{ range .Pages }}
+                <li><a href="{{ .Permalink }}">{{ .Title }}</a>{{ if .Params.description }}, <em>{{ .Params.description }}</em>{{ end }}</li>
+            {{ end }}
+            <hr>
+        {{ end }}
+    {{ end }}
+    </ul>
+{{ partial "footer.html" . }}

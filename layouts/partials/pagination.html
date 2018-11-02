@@ -1,0 +1,8 @@
+<div class="post-navigation clearfix">
+{{ if .Paginator.HasPrev }}
+	<a class="float-left" href="{{ .Paginator.Prev.URL }}">← newer</a>
+{{ end }}
+{{ if .Paginator.HasNext }}
+	<a class="float-right"href="{{ .Paginator.Next.URL }}">older →</a>
+{{ end }}
+</div>

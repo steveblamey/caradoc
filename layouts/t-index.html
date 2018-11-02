@@ -1,0 +1,64 @@
+<!-- Doctype HTML5 -->
+<!DOCTYPE html>
+<html lang="en" />
+
+<head>
+    <!-- Set character encoding for the document -->
+    <meta charset="UTF-8" />
+    <!-- Instruct Internet Explorer to use its latest rendering engine -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <!-- Viewport for responsive web design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Document Title: At most 55 characters for Google Search Result Pages -->
+    <title>{{ .Site.Title }}</title>
+    <!-- Meta Description: At most 150 characters for Google Search Result Pages -->
+    <meta name="description" content="{{ .Site.Params.description }}" />
+    <!-- Helps prevent duplicate content issues with www. and non-www, for example -->
+    <link rel="canonical" href="{{ .Site.BaseURL }}" />
+    <!-- Facebook Sharing boilerplate -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ .Site.BaseURL }}" />
+    <meta property="og:title" content="{{ .Site.Title }}" />
+    <meta property="og:image" content="https://example.com/image.jpg" />
+    <meta property="og:description" content="{{ .Site.Params.description }}" />
+    <meta property="og:site_name" content="{{ .Site.Params.site_name }}" />
+    <meta property="og:locale" content="pt_BR" />
+    <!-- Next tags are optional but recommended -->
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <!-- Twitter Sharing boilerplate -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@site_account" />
+    <meta name="twitter:creator" content="@individual_account" />
+    <meta name="twitter:url" content="{{ .Site.BaseURL }}" />
+    <meta name="twitter:title" content="{{ .Site.Title }}" />
+    <meta name="twitter:description" content="{{ .Site.Params.description }}" />
+    <meta name="twitter:image" content="https://example.com/image.jpg" />
+        <link rel="stylesheet" href="css/theme.css">
+        <link rel="stylesheet" href="css/milligram.css">
+        <link rel="stylesheet" href="css/sb.css">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans|Roboto+Condensed" rel="stylesheet"> 
+</head>
+
+<body>
+    <main>
+<nav class="navigation">
+      <section class="container">
+        <a href="/"><strong>STEVE BLAMEY</strong></a>
+        <ul class="navigation-list float-right">
+          <li class="navigation-item"><a href="https://github.com/steveblamey">github</a></li>
+          <li class="navigation-item">·</li>
+          <li class="navigation-item"><a href="/atom.xml">rss</a></li>
+          <li class="navigation-item">·</li>
+          <li class="navigation-item"><a href="/archive.html">archive</a></li>
+          <li class="navigation-item">·</li>
+          <li class="navigation-item"><a href="/about.html">about</a></li>
+        </ul>
+      </section>
+    </nav>
+        <h2>Yayyyy! Content!</h2>
+		<p>The content with <a href="https://steveblamey.co.uk">link</a>.</p>
+    </main>
+</body>
+
+</html>
