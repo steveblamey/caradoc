@@ -3,7 +3,7 @@
   <h2 class="post-title">Posts tagged &ldquo;{{ lower .Title }}&rdquo;</h2>
   <ul class="archive-list-tag">
     {{ range .Data.Pages }}
-      <li><a href="{{ .Permalink }}">{{ .Title }}</a>{{ if .Params.description }}<p>{{ .Params.description }}</p>{{ end }}</li>
+      <li><a href="{{ .Permalink }}">{{ .Title }}.</a>{{ if .Params.description }} {{ .Params.description }}{{ end }}</li>
     {{ end }}
   </ul>
 {{ partial "footer.html" . }}
