@@ -1,4 +1,5 @@
 {{ partial "header.html" . }}
+	<p class="float-right"><em>Browse <a href="/tags">tags</a></em></p>
     <ul class="archive-list">
     {{ with .Site.GetPage "section" "posts" }}
         {{ range .Pages.GroupByDate "2006" }}
