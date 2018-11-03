@@ -4,7 +4,7 @@ licenselink = "https://github.com/steveblamey/caradoc/blob/master/LICENSE.md"
 description = "A blogging theme for Hugo"
 homepage = "https://github.com/steveblamey/caradoc/"
 tags = ["blog"]
-min_version = "0.37.1"
+min_version = "0.50"
 
 [author]
   name = "Steve Blamey"
