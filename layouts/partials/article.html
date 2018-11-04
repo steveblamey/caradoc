@@ -5,4 +5,13 @@
 			{{ .page.Content }}
 		</div>
 		{{ partial "tags.html" .page }}
+		{{ with .related }}
+		<hr>
+		<h4>Related</h4>
+		<ul>
+			{{ range . }}
+			<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+			{{ end }}
+		</ul>
+		{{ end }}
 	</article>

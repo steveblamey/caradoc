@@ -1,5 +1,6 @@
 {{ partial "header.html" . }}
-{{ partial "article.html" (dict "page" . "home" false) }}
+{{ $r := .Site.Pages.Related . }}
+{{ partial "article.html" (dict "page" . "home" false "related" $r) }}
 <div class="post-navigation clearfix">
 	{{ if .NextInSection }} <a class="float-left" href="{{.NextInSection.Permalink}}">← newer</a> {{ end }} {{ if .PrevInSection }} <a class="float-right"href="{{.PrevInSection.Permalink}}">older →</a> {{ end }}
 </div>
