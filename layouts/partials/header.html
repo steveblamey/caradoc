@@ -4,13 +4,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>{{ .Title }}</title>
-	{{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+	<title>{{ if .IsHome }}{{ .Site.Title | lower | title }} - {{ .Site.Params.description }}{{ else }}{{ .Site.Title | lower | title }} - {{ .Title }}{{ end }}</title>
+	<meta name="title" content="{{ if .IsHome }}{{ .Site.Title | lower | title }} - {{ .Site.Params.description }}{{ else }}{{ .Site.Title | lower | title }} - {{ .Title }}{{ end }}">
+	{{ with .Params.description }}<meta name="description" content="{{ . }}">{{ end }}
 	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
-	<link rel="stylesheet" href="{{ .Site.BaseURL }}/css/normalize.css">
-	<link rel="stylesheet" href="{{ .Site.BaseURL }}/css/milligram.css">
-	<link rel="stylesheet" href="{{ .Site.BaseURL }}/css/caradoc.css">
-	<link rel="stylesheet" href="{{ .Site.BaseURL }}/css/syntax.css">
+	<link rel="canonical" href="{{ .URL }}" />
+	<link rel="stylesheet" href="{{ .Site.BaseURL }}css/normalize.css">
+	<link rel="stylesheet" href="{{ .Site.BaseURL }}css/milligram.css">
+	<link rel="stylesheet" href="{{ .Site.BaseURL }}css/caradoc.css">
+	<link rel="stylesheet" href="{{ .Site.BaseURL }}css/syntax.css">
 	<link href='{{ "/feed.xml" | relURL }}' rel="alternate" type="application/atom+xml" title="{{ .Site.Title }}" />
 </head>
 <body>

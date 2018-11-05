@@ -1,9 +1,10 @@
 {{ partial "header.html" . }}
+	<h1>Archive</h1>
 	<p class="float-right"><em>Browse <a href="/tags">tags</a></em></p>
     <ul class="archive-list-annual">
     {{ with .Site.GetPage "section" "posts" }}
         {{ range .Pages.GroupByDate "2006" }}
-            <h3>{{ .Key }}</h3>
+            <h2>{{ .Key }}</h2>
             {{ range .Pages }}
                 <li><a href="{{ .Permalink }}">{{ .Title }}.</a>{{ if .Params.description }} {{ .Params.description }}{{ end }}</li>
             {{ end }}

@@ -1,9 +1,9 @@
     {{ if .Params.tags }}
-    <div class="taglist">
+    <div class="article-tags">
         <p><em>Tags: 
         {{ range $i, $e := .Params.tags }}
             {{ if $i }}, {{ end }}
-            <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+            <a class="p-category" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
         {{ end }}</em></p>
     </div>
     {{ end }}

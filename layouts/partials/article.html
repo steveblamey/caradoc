@@ -1,17 +1,20 @@
-    <article>
-        <h2>{{ if .home }}<a href="{{ .page.Permalink }}">{{ .page.Title }}</a>{{ else }}{{ .page.Title }}{{ end }}{{ if .page.Params.draft }}<span class="draft-mark" title="Will not be public">draft</span>{{ end }}</h2>
-		{{ if eq .page.Type "posts" }}<h4><time datetime="{{ .page.Date.Format "2006-01-02" }}" itemprop="datePublished" class="date">{{ .page.Date.Format "02 Jan 2006" }}</time></h4>{{ end }}
-		<div>
+    <article class="post h-entry">
+        <h1 class="p-name">{{ if .home }}<a href="{{ .page.Permalink }}">{{ .page.Title }}</a>{{ else }}{{ .page.Title }}{{ end }}{{ if .page.Params.draft }}<span class="draft-mark" title="Will not be public">draft</span>{{ end }}</h1>
+		{{ if eq .page.Type "posts" }}<time class="pubdate dt-published" datetime="{{ .page.Date.Format "2006-01-02" }}">{{ .page.Date.Format "02 Jan 2006" }}</time>{{ end }}
+		<section class="e-content">
 			{{ .page.Content }}
-		</div>
+		</section>
+		<footer>
 		{{ partial "tags.html" .page }}
 		{{ with .related }}
-		<hr>
-		<h4>Related</h4>
+		<div class="article-related">
+		<h3>Related</h3>
 		<ul>
 			{{ range . }}
 			<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
 			{{ end }}
 		</ul>
+		</div>
 		{{ end }}
+		</footer>
 	</article>
