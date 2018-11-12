@@ -1,0 +1,16 @@
+{{ if .Params.toc }}
+<aside class="toc">
+    <header>
+    <h2>On this page</h2>
+    </header>
+    <!-- This code removes redundant list levels. See: https://github.com/gohugoio/hugo/issues/1778#issuecomment-423788811 -->
+    {{ $toc := .TableOfContents }}
+    {{ $toc := (replace $toc "<ul>\n<li>\n<ul>" "<ul>") }}
+    {{ $toc := (replace $toc "<ul>\n<li>\n<ul>" "<ul>") }}
+    {{ $toc := (replace $toc "<ul>\n<li>\n<ul>" "<ul>") }}
+    {{ $toc := (replace $toc "</ul></li>\n</ul>" "</ul>") }}
+    {{ $toc := (replace $toc "</ul></li>\n</ul>" "</ul>") }}
+    {{ $toc := (replace $toc "</ul></li>\n</ul>" "</ul>") }}
+    {{ safeHTML $toc }}
+</aside>
+{{ end }}

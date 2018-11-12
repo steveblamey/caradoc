@@ -83,7 +83,7 @@ h2 {
   line-height: 1.3;
 }
 
-h3 {
+h3, .toc h2 {
   font-size: 2.2rem;
   line-height: 1.35;
 }
@@ -156,6 +156,28 @@ ul {
   line-height: 1.35;
   margin-bottom: 2.0rem;
   color: #3c3c3c;
+}
+
+.toc {
+  float: right;
+  margin-left: 1.5rem;
+  padding: 0 2rem 0 2rem;
+  margin-bottom: 1.5rem;
+  border-left: 0.3rem solid #991848;
+  width: 100%;
+}
+
+.toc ul {
+  list-style: none;
+}
+
+.toc ul, .toc li {
+  margin: 0;
+}
+
+.read-more {
+  margin-bottom: 2.5rem;
+  display: inline-block;
 }
 
 .tag-sep {
@@ -237,7 +259,12 @@ ul {
 
 	.navigation-list {
 		float: right;
-	}
+  }
+  
+  .toc {
+    width: auto;
+    max-width: 33%;
+  }
 
 	.tagline {
 		float: none;

@@ -2,7 +2,20 @@
         <h1 class="p-name">{{ if .home }}<a href="{{ .page.Permalink }}">{{ .page.Title }}</a>{{ else }}{{ .page.Title }}{{ end }}{{ if .page.Params.draft }}<span class="draft-mark" title="Will not be public">draft</span>{{ end }}</h1>
 		{{ if eq .page.Type "posts" }}<time class="pubdate dt-published" datetime="{{ .page.Date.Format "2006-01-02" }}">{{ .page.Date.Format "02 Jan 2006" }}</time>{{ end }}
 		<section class="e-content">
-			{{ .page.Content }}
+			{{ if not .home }}
+				{{ partial "toc.html" .page }}
+			{{ end }}
+			{{ if and ( .home ) ( .page.Params.toc ) }}
+				{{ .page.Summary }}
+				{{ if .page.Truncated }}
+				<!-- This <div> includes a read more link, but only if the summary is truncated... -->
+				<div class="read-more">
+				<a href="{{ .page.RelPermalink }}">Read More…</a>
+				</div>
+				{{ end }}
+			{{ else }}
+				{{ .page.Content }}
+			{{ end }}
 		</section>
 		<footer>
 		{{ partial "tags.html" .page }}
