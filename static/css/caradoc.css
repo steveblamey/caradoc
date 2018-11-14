@@ -122,6 +122,12 @@ ul {
   list-style: circle outside;
 }
 
+figure.wrap-right {
+  float: left;
+  margin: 0.75rem 2rem 2rem 0;
+  display: flex;
+}
+
 .wrapper .container {
   max-width: 80rem;
 }
