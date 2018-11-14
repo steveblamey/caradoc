@@ -191,10 +191,6 @@ figure.wrap-right {
 	display: none;
 }
 
-.footnotes hr {
-  display: none;
-}
-
 .article-related h3 {
   margin-top: 4.0rem;
 }
@@ -237,6 +233,10 @@ figure.wrap-right {
   text-align: center;
 }
 
+.footnotes hr {
+  display: none;
+}
+
 .footnotes, .article-tags {
   font-size: smaller;
 }
@@ -244,6 +244,11 @@ figure.wrap-right {
 .footnotes li {
   list-style: decimal;
   margin-bottom: 0.5rem;
+}
+
+.button, button, input[type="button"], input[type="reset"], input[type="submit"] {
+  background-color: #991848;
+  border-color: #991848;
 }
 
 .draft-mark {

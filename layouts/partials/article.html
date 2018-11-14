@@ -29,5 +29,9 @@
 		</ul>
 		</div>
 		{{ end }}
+		{{ $ageDays := div (sub now.Unix .page.Date.Unix) 86400 }}
+		{{ if and ( not .home ) ( eq .page.Type "posts" ) ( .page.Params.comments ) ( gt .page.Site.Params.CommentsCutoff $ageDays ) }}
+		{{ partial "comment-form.html" .page.Permalink }}
+		{{ end }}
 		</footer>
 	</article>
