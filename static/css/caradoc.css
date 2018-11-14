@@ -191,6 +191,14 @@ figure.wrap-right {
 	display: none;
 }
 
+.footnotes hr {
+  display: none;
+}
+
+.article-related h3 {
+  margin-top: 4.0rem;
+}
+
 .navigation-list, .archive-list {
   list-style: none;
 }
@@ -210,6 +218,7 @@ figure.wrap-right {
   float: left;
   margin-left: 1.0rem;
   margin-bottom: 0;
+  color: #991848;
 }
 
 .post-navigation {
