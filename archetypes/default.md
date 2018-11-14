@@ -1,14 +1,13 @@
 ---
 date: {{ .Date }}
 title: "{{ replace .Name "-" " " | title }}"
+description: ""
 tags: []
 categories: ""
+toc: false
 draft: true
-description: ""
 ---
 
-Intro paragraph.
-
-### Heading
+## Heading
 
 Meat of the matter.
