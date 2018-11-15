@@ -20,24 +20,24 @@
 		<footer>
 		{{ partial "tags.html" .page }}
 		{{ with .related }}
-		<div class="article-related">
-		<h3>Related</h3>
-		<ul>
-			{{ range . }}
-			<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-			{{ end }}
-		</ul>
-		</div>
+			<div class="article-related">
+			<h3>Related</h3>
+			<ul>
+				{{ range . }}
+				<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+				{{ end }}
+			</ul>
+			</div>
 		{{ end }}
-		{{ if and ( not .home ) ( eq .page.Type "posts" ) }}
-		{{ $c := (index .page.Site.Data.comments .page.File.BaseFileName) }}
-		{{ with $c }}{{ partial "comments.html" $c }}{{ end }}
+		{{ if and ( not .home ) ( eq .page.Type "posts" ) ( fileExists "/data/comments/" ) }}
+			{{ $c := (index .page.Site.Data.comments .page.File.BaseFileName) }}
+			{{ with $c }}{{ partial "comments.html" $c }}{{ end }}
 		{{ end }}
 		{{ $ageDays := div (sub now.Unix .page.Date.Unix) 86400 }}
 		{{ if and ( not .home ) ( eq .page.Type "posts" ) ( .page.Params.comments ) ( gt .page.Site.Params.CommentCutoff $ageDays ) }}
-		{{ partial "comment-form.html" (dict "pageName" .page.File.BaseFileName "postURL" .page.Site.Params.CommentPostURL )}}
+			{{ partial "comment-form.html" (dict "pageName" .page.File.BaseFileName "postURL" .page.Site.Params.CommentPostURL )}}
 		{{ else if and ( not .home ) ( eq .page.Type "posts" ) }}
-		<p><em>Comments Closed.</em></p>
+			<p><em>Comments Closed.</em></p>
 		{{ end }}
 		</footer>
 	</article>
