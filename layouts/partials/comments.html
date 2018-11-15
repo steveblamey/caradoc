@@ -1,0 +1,16 @@
+{{ with . }}
+    <h3>Comments</h3>
+    {{ range .comments }}
+    <article id="{{ .ref }}" class="comment h-entry">
+        <div class="comment-avatar"><img src="https://www.gravatar.com/avatar/{{ .gravatar }}?s=100&d=identicon"></div>
+        <div class="comment-body">
+            <h4 class="comment-author p-author">{{ htmlEscape .name }}</h4>
+            <div class="comment-time">
+                <a href="#{{ .ref }}" class="u-url">#</a> <time class="comment-date dt-published" datetime="{{ dateFormat "2006-01-02" .date }}">{{ dateFormat "02 Jan 2006" .date }}</time>
+            </div>
+            <p class="e-content">{{ htmlEscape .comment }}</p>
+        </div>
+    </article>
+    <hr class="comment-sep">
+    {{ end }}
+{{ end }}

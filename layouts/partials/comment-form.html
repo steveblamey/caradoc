@@ -1,13 +1,13 @@
 <div class="comment-form">
   <h3>Leave a Comment</h3>
-  <form netlify name="comments-queue" method="POST" action="/thanks">
-    <input name="path" type="hidden" value="{{ . }}">
+  <form netlify name="comments-queue" method="POST" action=".postURL">
+    <input name="path" type="hidden" value="{{ .pageName }}">
     <label for="name">Your name</label>
-    <input type="text" name="name" id="name">
+    <input type="text" name="name" id="name" required>
     <label for="email">Your email</label>
     <input type="email" name="email" id="email">
     <label for="comment">Your comment</label>
-    <textarea name="comment" id="comment"></textarea>
+    <textarea name="comment" id="comment" required></textarea>
     <button type="submit">Post your comment</button>
   </form>
 </div>
