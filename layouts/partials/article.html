@@ -31,7 +31,7 @@
 		{{ end }}
 		{{ if and ( not .home ) ( eq .page.Type "posts" ) }}
 		{{ $c := (index .page.Site.Data.comments .page.File.BaseFileName) }}
-		{{ partial "comments.html" $c }}
+		{{ with $c }}{{ partial "comments.html" $c }}{{ end }}
 		{{ end }}
 		{{ $ageDays := div (sub now.Unix .page.Date.Unix) 86400 }}
 		{{ if and ( not .home ) ( eq .page.Type "posts" ) ( .page.Params.comments ) ( gt .page.Site.Params.CommentCutoff $ageDays ) }}
