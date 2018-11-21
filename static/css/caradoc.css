@@ -266,12 +266,25 @@ figure.wrap-right {
   padding-top: 1rem;
 }
 
+.article-comments {
+  margin-top: 4.5rem;
+}
+
 article.comment {
   margin-bottom: 2rem;
 }
 
 .comment-avatar {
   float: left;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background-color: #991848;
+  line-height: 5rem;
+  text-align: center;
+  color: #fff;
+  font-size: 3rem;
+  font-family: 'roboto condensed', sans-serif;
 }
 
 .comment-author {

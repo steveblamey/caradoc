@@ -1,8 +1,11 @@
 {{ with . }}
+    <div class="article-comments">
     <h3>Comments</h3>
     {{ range .comments }}
     <article id="{{ .ref }}" class="comment h-entry">
-        <div class="comment-avatar"><img src="https://www.gravatar.com/avatar/{{ .gravatar }}?d=identicon"></div>
+        {{ $names := split .name " "}}
+        {{ $letters := print (substr (index ($names) 0) 0 1) }}
+        <div class="comment-avatar">{{ $letters }}</div>
         <div class="comment-body">
             <h4 class="comment-author p-author">{{ htmlEscape .name }}</h4>
             <div class="comment-time">
@@ -13,4 +16,5 @@
     </article>
     <hr class="comment-sep">
     {{ end }}
+    </div>
 {{ end }}
