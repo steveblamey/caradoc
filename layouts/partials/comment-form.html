@@ -3,9 +3,7 @@
   <form netlify name="comments-queue" method="POST" action=".postURL">
     <input name="path" type="hidden" value="{{ .pageName }}">
     <label for="name">Your name</label>
-    <input type="text" name="name" id="name" required>
-    <label for="email">Your email</label>
-    <input type="email" name="email" id="email">
+    <input type="text" name="name" id="name">
     <label for="comment">Your comment</label>
     <textarea name="comment" id="comment" required></textarea>
     <button type="submit">Post your comment</button>
