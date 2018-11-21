@@ -307,6 +307,10 @@ article.comment {
   margin: 2.0rem 0;
 }
 
+form .comment-email {
+  display: none;
+}
+
 /* Larger than mobile screen */
 @media (min-width: 40.0rem) {
 
