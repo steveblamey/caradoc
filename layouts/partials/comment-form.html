@@ -1,7 +1,7 @@
 <div class="comment-form">
   <h3>Please leave a Comment</h3>
   <p>Your thoughts on this article would be much appreciated and will add additional value and insight to other readers.</p>
-  <form name="comments-queue" method="POST" action=".postURL" netlify-honeypot="email" netlify>
+  <form name="comments-queue" method="POST" action="{{ .postURL }}" netlify-honeypot="email" netlify>
     <input name="path" type="hidden" value="{{ .pageName }}">
     <span class="comment-email"><input name="email"></span>
     <label for="name">Your name</label>
