@@ -4,19 +4,18 @@
     {{ range .comments }}
     <article id="{{ .ref }}" class="comment h-entry">
         {{ if ge (len .name) 1 }}
-            {{ $names := split .name " "}}
         <div class="comment-avatar">{{ substr .name 0 1 }}</div>
             <div class="comment-body">
-                <h4 class="comment-author p-author">{{ htmlEscape .name }}</h4>
+                <h4 class="comment-author p-author">{{ .name }}</h4>
         {{ else }}
-        <div class="comment-avatar">A</div>
+        <div class="comment-avatar open">A</div>
             <div class="comment-body">
                 <h4 class="comment-author p-author">Anonymous</h4>
         {{ end }}
             <div class="comment-time">
                 <a href="#{{ .ref }}" class="u-url">#</a> <time class="comment-date dt-published" datetime="{{ dateFormat "2006-01-02" .date }}">{{ dateFormat "02 Jan 2006" .date }}</time>
             </div>
-            <p class="e-content">{{ htmlEscape .comment }}</p>
+            <p class="e-content">{{ .comment }}</p>
         </div>
     </article>
     <hr class="comment-sep">
