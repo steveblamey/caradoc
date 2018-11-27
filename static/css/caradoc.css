@@ -266,6 +266,10 @@ figure.wrap-right {
   padding-top: 1rem;
 }
 
+.avatar img {
+  border-radius: 50%;
+}
+
 .article-comments {
   margin-top: 4.5rem;
 }
