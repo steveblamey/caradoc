@@ -199,6 +199,11 @@ figure.wrap-right {
   list-style: none;
 }
 
+.archive-list {
+  column-count: 4;
+  column-width: 10rem;
+}
+
 .navigation-list {
 	float: left;
 	margin-bottom: 1rem;
@@ -268,6 +273,10 @@ figure.wrap-right {
 
 .avatar img {
   border-radius: 50%;
+}
+
+.code-wrap {
+  white-space: normal;
 }
 
 .article-comments {
