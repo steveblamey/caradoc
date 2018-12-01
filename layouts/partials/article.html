@@ -1,5 +1,5 @@
     <article class="post h-entry">
-        <h1 class="p-name">{{ if .home }}<a href="{{ .page.Permalink }}" class="u-url">{{ .page.Title }}</a>{{ else }}{{ .page.Title }}{{ end }}{{ if .page.Params.draft }}<span class="draft-mark" title="Will not be public">draft</span>{{ end }}</h1>
+        <h1 class="p-name">{{ if .home }}<a class="u-url" href="{{ .page.Permalink }}" >{{ .page.Title }}</a>{{ else }}{{ .page.Title }}{{ end }}{{ if .page.Params.draft }}<span class="draft-mark" title="Will not be public">draft</span>{{ end }}</h1>
 		{{ if eq .page.Type "posts" }}<time class="pubdate dt-published" datetime="{{ .page.Date }}">{{ .page.Date.Format "02 Jan 2006" }}</time>{{ end }}
 		<section class="e-content">
 			{{ if not .home }}
