@@ -6,7 +6,7 @@
 				{{ range $i, $e := .Site.Params.profiles }}{{ if $i }}<li class="navigation-item">·</li>{{ end }}<li class="navigation-item"><a href="{{ $e.URL }}" rel="me">{{ $e.site }}</a></li>{{ end }}
 			</ul>
 			<div class="h-card">
-				<p class="p-name u-url">&copy; {{ now.Year }} <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></p>
+				<p>&copy; {{ now.Year }} <a class="p-name u-url" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></p>
 			</div>
 		</footer>
 	</body>
