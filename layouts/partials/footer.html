@@ -5,9 +5,13 @@
 				<li class="navigation-intro">Find me on: </li>
 				{{ range $i, $e := .Site.Params.profiles }}{{ if $i }}<li class="navigation-item">·</li>{{ end }}<li class="navigation-item"><a href="{{ $e.URL }}" rel="me">{{ $e.site }}</a></li>{{ end }}
 			</ul>
+			{{ if .IsHome }}
 			<div class="h-card">
 				<p class="avatar"><img class="u-photo" src="{{.Site.BaseURL}}{{ .Site.Params.AuthorPhoto }}"/> &copy; {{ now.Year }} <a class="p-name u-url" rel="author" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></p>
 			</div>
+			{{ else }}
+			<p>&copy; {{ now.Year }} <a class="p-name u-url" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></p>
+			{{ end }}
 		</footer>
 	</body>
 </html>

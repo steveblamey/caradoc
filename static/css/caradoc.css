@@ -224,6 +224,7 @@ figure.wrap-right {
 
 .navigation-intro {
   color: #000;
+  display: contents;
 }
 
 .post-navigation {
@@ -250,6 +251,12 @@ figure.wrap-right {
 .indie-links {
   display: inline-block;
   list-style: none;
+  margin: 0;
+}
+
+.indie-links .navigation-item {
+  float: inherit;
+  line-height: 2rem;
 }
 
 .footnotes hr {
@@ -373,6 +380,17 @@ form .comment-email {
 
 	.tag-sep {
 		display: block;
-	}
+  }
+  
+  .navigation-intro {
+    color: #000;
+    display: block;
+    line-height: inherit;
+  }
+
+  .indie-links .navigation-item {
+    float: left;
+    line-height: inherit;
+  }
 
 }
