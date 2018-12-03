@@ -1,7 +1,10 @@
     <article class="post h-entry">
-        <h1 class="p-name">{{ if .home }}<a class="u-url" href="{{ .page.Permalink }}" >{{ .page.Title }}</a>{{ else }}{{ .page.Title }}{{ end }}{{ if .page.Params.draft }}<span class="draft-mark" title="Will not be public">draft</span>{{ end }}</h1>
-		{{ if eq .page.Type "posts" }}<time class="pubdate dt-published" datetime="{{ .page.Date }}">{{ .page.Date.Format "02 Jan 2006" }} <a class="u-url" href="{{ .page.Permalink }}" title="permalink" >#</a></time>{{ end }}
-		{{ if not .home }}<a class="u-author h-card" href="/"></a>{{ end }}
+		<header>
+            <h1 class="p-name">{{ if .home }}<a class="u-url" href="{{ .page.Permalink }}" >{{ .page.Title }}</a>{{ else }}{{ .page.Title }}{{ end }}{{ if .page.Params.draft }}<span class="draft-mark" title="Will not be public">draft</span>{{ end }}</h1>
+            {{ with .page.Params.description }}<p class="p-summary post-summary"><em>{{ . }}</em></p>{{ end }}
+		    {{ if eq .page.Type "posts" }}<div class="post-info"><time class="pubdate dt-published" datetime="{{ .page.Date }}">{{ .page.Date.Format "02 Jan 2006" }}</time> <a class="u-url" href="{{ .page.Permalink }}" title="Permalink" >#</a></div>{{ end }}
+            {{ if not .home }}<a class="u-author h-card" href="/"></a>{{ end }}
+		</header>
 		<section class="e-content">
 			{{ if not .home }}
 				{{ partial "toc.html" .page }}
