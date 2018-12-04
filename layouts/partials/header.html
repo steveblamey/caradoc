@@ -4,9 +4,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>{{ if .IsHome }}{{ .Site.Title | lower | title }} - {{ .Site.Params.description }}{{ else }}{{ .Site.Title | lower | title }} - {{ .Title }}{{ end }}</title>
-	<meta name="title" content="{{ if .IsHome }}{{ .Site.Title | lower | title }} - {{ .Site.Params.description }}{{ else }}{{ .Site.Title | lower | title }} - {{ .Title }}{{ end }}">
-	{{ with .Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+	<title>{{ if .IsHome }}{{ .Site.Title | lower | title }} - {{ .Site.Params.tagline }}{{ else }}{{ .Site.Title | lower | title }} - {{ .Title }}{{ end }}</title>
+	<meta name="title" content="{{ if $.IsHome }}{{ .Site.Title }} - {{ .Site.Params.tagline }}{{ else }}{{ .Site.Title }} - {{ .Title }}{{ end }}">
+	<meta name="description" content="{{ if .Params.description }}{{ .Params.description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
 	<link rel="canonical" href="{{ .URL }}" />
 	<link rel="stylesheet" href="{{ .Site.BaseURL }}css/normalize.css">
@@ -20,7 +20,7 @@
 	<main class="wrapper">
 			<nav class="navigation">
 				<section class="container">
-					<div class="navigation-home"><a class="home-link" href="{{ .Site.BaseURL }}" rel="me"><strong>{{ .Site.Title }}</strong></a><span class="tag-sep">·</span><span class="tagline">{{ .Site.Params.description }}</span></div>
+					<div class="navigation-home"><a class="home-link" href="{{ .Site.BaseURL }}" rel="me"><strong>{{ upper .Site.Title }}</strong></a><span class="tag-sep">·</span><span class="tagline">{{ .Site.Params.tagline }}</span></div>
 					<ul class="navigation-list">
 						{{ range $i, $e := .Site.Menus.main.ByWeight }}{{ if $i }}<li class="navigation-item">·</li>{{ end }}<li class="navigation-item"><a href="{{ $e.URL | relURL }}">{{ $e.Name }}</a></li>{{ end }}
 					</ul>
