@@ -1,6 +1,6 @@
-<figure {{ with .Get "class" }}class="{{.}}"{{ end }}>
+<figure {{ with .Get "class" }}class="{{.}}"{{ end -}}>
     {{.Inner}}
-      <figcaption>
+    <figcaption>
         <p>{{ .Get "figcaption" }}</p>
     </figcaption>
-  </figure>
+</figure>
