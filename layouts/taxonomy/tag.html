@@ -1,9 +1,11 @@
 {{ partial "header.html" . }}
-  <p class="float-right"><em>Browse <a href="/tags">all tags</a></em></p>
-  <h2 class="post-title">Posts tagged &ldquo;{{ lower .Title }}&rdquo;</h2>
+  <p class="float-right">{{ partial "icon-tags-svg" }}<em>Browse <a href="/tags">all tags</a></em></p>
+  <h2 class="post-title">Posts tagged &lsquo;{{ lower .Title }}&rsquo;</h2>
   <ul class="archive-list-tag">
     {{ range .Data.Pages }}
       <li><a href="{{ .Permalink }}">{{ .Title }}</a>. {{ if .Params.description }} {{ .Params.description }}{{ end }}</li>
+    {{ else }}
+      <p>No tags yet, stay calm...</p>
     {{ end }}
   </ul>
 {{ partial "footer.html" . }}

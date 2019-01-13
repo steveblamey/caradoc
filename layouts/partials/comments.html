@@ -1,10 +1,10 @@
 {{ with . }}
     <div class="article-comments">
-    <h3>Comments</h3>
-    {{ range .comments }}
+    <h3>Comments and Webmentions</h3>
+    {{ range sort .comments "date"}}
     <article id="{{ .ref }}" class="comment h-entry">
         {{ if ge (len .name) 1 }}
-        <div class="comment-avatar">{{ substr .name 0 1 }}</div>
+        <div class="comment-avatar open">{{ substr .name 0 1 }}</div>
             <div class="comment-body">
                 <h4 class="comment-author p-author">{{ .name }}</h4>
         {{ else }}
@@ -13,9 +13,10 @@
                 <h4 class="comment-author p-author">Anonymous</h4>
         {{ end }}
             <div class="comment-time">
-                <a href="#{{ .ref }}" class="u-url">#</a> <time class="comment-date dt-published" datetime="{{ dateFormat "2006-01-02" .date }}">{{ dateFormat "02 Jan 2006" .date }}</time>
+                <a href="#{{ .ref }}" class="u-url" title="Comment permalink">#</a> <time class="comment-date dt-published" datetime="{{ dateFormat "2006-01-02 15:04" .date }}">{{ dateFormat "2 Jan 2006" .date }}</time>
             </div>
             <p class="e-content">{{ .comment }}</p>
+            {{ if .url }}<p class="webmention">Webmention from: <a class="u-url" href="{{ .url }}">{{ .label }}</a></p>{{ end }}
         </div>
     </article>
     <hr class="comment-sep">

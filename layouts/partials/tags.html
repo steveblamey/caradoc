@@ -1,9 +1,12 @@
     {{ if .Params.tags }}
     <div class="article-tags">
-        <p><em>Tags: 
+        <p>{{ partial "icon-tags-svg" }}<em>Tags: 
         {{ range $i, $e := .Params.tags }}
             {{ if $i }}, {{ end }}
             <a class="p-category" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
         {{ end }}</em></p>
     </div>
+    {{ end }}
+    {{ if .Params.series }}
+    <p><em>Part of the <a href="/series/{{ .Params.series | urlize }}">&lsquo;{{ .Params.series | title }}&rsquo;</a> series.</em></p>
     {{ end }}

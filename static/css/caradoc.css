@@ -123,6 +123,29 @@ ul {
   list-style: circle outside;
 }
 
+.icon-permalink {
+  height: 1.7rem;
+  vertical-align: middle;
+  margin-left: 1rem;
+}
+
+.icon-permalink path {
+  fill: #606c76;
+}
+
+a.permalink {
+  font-size: 1.6rem;
+}
+
+.icon-tags {
+  width: 2.3rem;
+  vertical-align: middle;
+}
+
+.icon-tags path {
+  stroke: #606c76;
+}
+
 figure.wrap-right {
   float: left;
   margin: 0.75rem 2rem 2rem 0;
@@ -210,7 +233,8 @@ figure {
 }
 
 .navigation-list {
-	float: left;
+  float: left;
+  display: flex;
 	margin-bottom: 1rem;
 }
 
@@ -220,8 +244,6 @@ figure {
 }
 
 .navigation-item, .navigation-intro {
-  position: relative;
-  float: left;
   margin-right: 1.0rem;
   margin-bottom: 0;
   color: #991848;
@@ -258,7 +280,7 @@ figure {
 }
 
 .indie-links {
-  display: inline-block;
+  display: block;
   list-style: none;
   margin: 0;
 }
@@ -405,6 +427,16 @@ input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:fo
     line-height: inherit;
   }
 
+  .archive-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10%;
+  }
+
+  .indie-links {
+    display: inline-flex;
+  }
+  
   .indie-links .navigation-item {
     float: left;
     line-height: inherit;

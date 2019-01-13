@@ -1,5 +1,5 @@
 {{ partial "header.html" . }}
-<h2>Tags</h2>
+<h2>{{ partial "icon-tags-svg" }}Tags</h2>
 <ul class="archive-list terms-tags">
     {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
         {{ with $.Site.GetPage (printf "/tags/%s" $name) }}

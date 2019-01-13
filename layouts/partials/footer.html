@@ -7,10 +7,12 @@
 			</ul>
 			{{ if .IsHome }}
 			<div class="h-card">
-				<p class="avatar"><img class="u-photo" src="{{.Site.BaseURL}}{{ .Site.Params.AuthorPhoto }}"/> &copy; {{ now.Year }} <a class="p-name u-url" rel="author" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></p>
+				<div><img class="u-photo avatar" src="{{.Site.BaseURL}}{{ .Site.Params.AuthorPhoto }}"/> &copy; {{ now.Year }} <a class="p-name u-url" rel="author" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></div>
 			</div>
+			<div class="content-license">{{ with .Site.Params.contentlicense}}{{ . | safeHTML }}{{ end }}</div>
 			{{ else }}
-			<p>&copy; {{ now.Year }} <a class="p-name u-url" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></p>
+			<div class="content-license">&copy; {{ now.Year }} <a class="p-name u-url" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+			{{ with .Site.Params.contentlicense}}{{ . | safeHTML }}{{ end }}</div>
 			{{ end }}
 		</footer>
 	</body>

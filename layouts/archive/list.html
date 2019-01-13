@@ -1,15 +1,26 @@
 {{ partial "header.html" . }}
-	<h1>Archive</h1>
-	<p class="float-right"><em>Browse <a href="/tags">tags</a></em></p>
-    <ul class="archive-list-annual">
+    <h1>Archive</h1>
+    <div class="archive-grid">
+            <div class="archive-year">
+                <h2>Browse</h2>
+            <ul>
+                    <li>{{ partial "icon-tags-svg" }}<a href="/tags">tags</a></li>
+                    <li><a href="/series">blog series</a></li>
+                </ul>
+            </div>
     {{ with .Site.GetPage "section" "posts" }}
-        {{ range .Pages.GroupByDate "2006" }}
-            <h2>{{ .Key }}</h2>
-            {{ range .Pages }}
-                <li><a href="{{ .Permalink }}">{{ .Title }}.</a>{{ if .Params.description }} {{ .Params.description }}{{ end }}</li>
-            {{ end }}
-            <hr>
-        {{ end }}
+    {{ range .Pages.GroupByDate "2006" }}
+            <div class="archive-year">
+                <h2>{{ .Key }}</h2>
+                <ul class="archive-list-annual">
+                    {{ range .Pages }}
+                    <li><a href="{{ .Permalink }}">{{ .Title }}.</a>{{ if .Params.description }} {{ .Params.description }}{{ end }}</li>
+                    {{ end }}
+                </ul>
+            </div>
+            
     {{ end }}
-    </ul>
+    {{ end}}
+    </div>
+    
 {{ partial "footer.html" . }}
