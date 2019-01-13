@@ -138,12 +138,12 @@ a.permalink {
 }
 
 .icon-tags {
-  width: 2.3rem;
   vertical-align: middle;
 }
 
 .icon-tags path {
   stroke: #606c76;
+  fill: none;
 }
 
 figure.wrap-right {
