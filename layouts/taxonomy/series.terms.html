@@ -1,0 +1,12 @@
+{{ partial "header.html" . }}
+<h2>Blog Series</h2>
+<ul class="aterms-series">
+    {{ range $name, $taxonomy := .Site.Taxonomies.series }}
+        {{ with $.Site.GetPage (printf "/series/%s" $name) }}
+            <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+        {{ end }}
+    {{ else }}
+        <p>No blog series yet, stay calm...</p>
+    {{ end }}
+</ul>
+{{ partial "footer.html" . }}
