@@ -146,6 +146,15 @@ a.permalink {
   fill: none;
 }
 
+# Inline style in the SVG blocked by CSP
+.icon-tags path#top-tag {
+  fill-opacity:1;
+  stroke-width:0.60000002;
+  stroke-miterlimit:4;
+  stroke-dasharray:none;
+  stroke-opacity:1
+}
+
 figure.wrap-right {
   float: left;
   margin: 0.75rem 2rem 2rem 0;
