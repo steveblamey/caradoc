@@ -297,11 +297,14 @@ figure {
 
 .footer__inner {
   display: inline-flex;
+  flex-wrap: wrap;
   margin: 3rem 0 3rem 0;
 }
 
 .footer__item {
-  margin: 0 3rem 0 0;
+  margin-bottom: 0;
+  margin-top: 1rem;
+  padding: 0 3rem 0 0;
   text-align: left;
 }
 
@@ -309,20 +312,9 @@ figure {
   display:none;
 }
 
-.content-license {
-  line-height: 3rem;
-  margin: 2em 0 6rem 0;
-}
-
 .u-photo {
   vertical-align: middle;
   margin-right: 1rem;
-}
-
-.indie-links {
-  display: block;
-  list-style: none;
-  margin: 1rem 0 0 0;
 }
 
 .navigation-intro {
