@@ -1,8 +1,4 @@
 {{ partial "header.html" . }}
     <p class="float-right"><em>The {{ .Title }} Series</em></p>
-	{{ $paginator := .Paginate (where .Data.Pages "Type" "posts") }}
-	{{ range $paginator.Pages }}
-		{{ partial "summary.html" . }}
-	{{ end }}
-	{{ partial "pagination.html" . }}
+	{{ partial "postlist.html" . }}
 {{ partial "footer.html" . }}

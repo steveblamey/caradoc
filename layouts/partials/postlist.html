@@ -1,0 +1,19 @@
+{{ $paginator := .Paginate (where .Pages "Type" "posts") }}
+<ol class="postlist">
+{{ range $paginator.Pages }}
+    <li class="postlist__item">
+            <h2 class="postlist__title p-name"><a class="postlist__link" href="{{ .Permalink }}">{{ .Title }}</a></h2>
+            <div class="post-info">
+                <time class="postlist__date dt-published" datetime="{{ .Date }}">{{ .Date.Format "02 Jan 2006" }}</time>
+            </div>
+            <p class="p-summary">
+                {{ if .Params.description}}
+                {{ .Params.description}}
+                {{ else }}
+                {{ .Summary }}
+                {{ end }}
+            </p>
+    </li>
+{{ end }}
+</ol>
+{{ partial "pagination.html" . }}

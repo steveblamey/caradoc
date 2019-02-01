@@ -1,0 +1,32 @@
+{{ $param_target := "?target="}}
+{{ $param_token := "&token=" }}
+{{ $value_target := .RelPermalink }}
+{{ $value_token := getenv "WEBM_TOKEN" }}
+{{ $mentions := getJSON "https://webmention.io/api/mentions.jf2" $param_target .Site.Params.WebMentionTargetSite $value_target $param_token $value_token }}
+{{ $filter := (slice "in-reply-to" "mention-of") }}
+{{ with $mentions.children }}
+<hr/>
+<div class="article-comments">
+    <h3>Webmentions</h3>
+    {{ range sort . "published"}}
+    {{ if (index . "wm-id") in $filter}}
+    <article id="{{ index . "wm-id" }}" class="comment h-entry">
+        {{ if ge (len .author.name) 1 }}
+        <div class="comment-avatar open">{{ substr .author.name 0 1 }}</div>
+            <div class="comment-body">
+                <h4 class="comment-author p-author"><a class="u-url" href="{{ .url }}">{{ .author.name }}</a></h4>
+        {{ else }}
+        <div class="comment-avatar open">A</div>
+            <div class="comment-body">
+                <h4 class="comment-author p-author">Anonymous</h4>
+        {{ end }}
+            <div class="comment-time">
+                <a href="#{{ index . "wm-id" }}" class="u-url" title="Comment permalink">#</a> <time class="comment-date dt-published" datetime="{{ .published }}">{{ with .published }}{{ dateFormat "2 Jan 2006 15:04" (time .).Local }}{{ end }}</time>
+            </div>
+            <p class="e-content">{{ .content.text }}</p>
+        </div>
+    </article>
+    {{ end }}
+    {{ end }}
+</div>
+{{ end }}

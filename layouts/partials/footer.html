@@ -1,19 +1,31 @@
 			</section>
 		</main>
-		<footer class="footer">
-			<ul class="indie-links">
-				<li class="navigation-intro">Find me on: </li>
-				{{ range $i, $e := .Site.Params.profiles }}{{ if $i }}<li class="navigation-item">·</li>{{ end }}<li class="navigation-item"><a href="{{ $e.URL }}" rel="me">{{ $e.site }}</a></li>{{ end }}
-			</ul>
-			{{ if .IsHome }}
-			<div class="h-card">
-				<div><img class="u-photo avatar" src="{{.Site.BaseURL}}{{ .Site.Params.AuthorPhoto }}"/> &copy; {{ now.Year }} <a class="p-name u-url" rel="author" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></div>
+		<footer class="footer wrapper">
+			<div class="h-card container footer__inner">
+				<div hidden="">
+					<img class="u-photo" src="{{.Site.BaseURL}}{{ .Site.Params.AuthorPhoto }}"/>
+					<p class="p-note"></p>
+				</div>
+				<p class="footer__item">
+					&copy; {{ now.Year }}
+					<br>
+					<a class="p-name u-url" href="{{ .Site.BaseURL }}">{{ .Site.Params.Author }}</a>
+					{{ with .Site.Params.ContentLicense}}
+					<br>
+					{{ . }}
+					{{ end }}
+				</p>
+				<p class="footer__item">
+					Social
+					<br>
+					{{ range $i, $e := .Site.Params.profiles }}{{ if $i }} / {{ end }}<a href="{{ $e.URL }}" rel="me">{{ $e.site }}</a>{{ end }}
+				</p>
+				<p class="footer__item">
+					Notes
+					<br>
+					{{ range $i, $e := .Site.Menus.secondary.ByWeight }}{{ if $i }} / {{ end }}<a href="{{ $e.URL | relURL }}">{{ $e.Name }}</a>{{ end }}
+				</p>
 			</div>
-			<div class="content-license">{{ with .Site.Params.contentlicense}}{{ . | safeHTML }}{{ end }}</div>
-			{{ else }}
-			<div class="content-license">&copy; {{ now.Year }} <a class="p-name u-url" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
-			{{ with .Site.Params.contentlicense}}{{ . | safeHTML }}{{ end }}</div>
-			{{ end }}
 		</footer>
 	</body>
 </html>

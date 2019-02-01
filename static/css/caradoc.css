@@ -67,6 +67,10 @@ body {
   color: #151515;
 }
 
+ol {
+  list-style: none;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: normal;
@@ -116,7 +120,7 @@ pre {
 }
 
 hr {
-  margin: 4.0rem 0;
+  margin: 1.0rem 0;
 }
 
 ul {
@@ -182,6 +186,19 @@ figure {
 	float: left;
 }
 
+.postlist__item {
+  margin-bottom: 8rem;
+}
+
+.postlist__title {
+  margin-bottom: 0.5rem;
+}
+
+.postlist__date {
+    margin-bottom: 1.5rem;
+    color: #747474;
+}
+
 .post-info {
   display: block;
   font-family: 'Roboto Condensed', sans-serif;
@@ -190,7 +207,7 @@ figure {
   letter-spacing: -.08rem;
   line-height: 1.35;
   margin-bottom: 2.0rem;
-  color: #3c3c3c;
+  color: #747474;
 }
 
 .toc {
@@ -220,8 +237,27 @@ figure {
 	display: none;
 }
 
+.article-related ol {
+  list-style: none;
+}
+
 .article-related h3 {
   margin-top: 4.0rem;
+}
+
+.article-related__link {
+  display: flex;
+}
+
+.article-related__date {
+  display: block;
+  color: #606c76;
+  order: -1;
+  flex: 0 0 125px;
+}
+
+.article-related__title {
+  display: block;
 }
 
 .navigation-list, .archive-list {
@@ -244,12 +280,6 @@ figure {
 	margin: 1rem 0 1rem;
 }
 
-.navigation-item, .navigation-intro {
-  margin-right: 1.0rem;
-  margin-bottom: 0;
-  color: #991848;
-}
-
 .post-navigation {
   font-family: 'Roboto Condensed', sans-serif;
   margin-bottom: 4.0rem;
@@ -258,21 +288,30 @@ figure {
 
 .footer {
   width: 100%;
-  height: 6.0rem;
-  line-height: 6.0rem;
+
   border-top: 0.1rem solid #d1d1d1;
   margin-top: 4.0rem;
   font-family: 'Roboto Condensed', sans-serif;
   text-align: center;
 }
 
-.footer img {
-  vertical-align: middle;
+.footer__inner {
+  display: inline-flex;
+  margin: 3rem 0 3rem 0;
+}
+
+.footer__item {
+  margin: 0 3rem 0 0;
+  text-align: left;
+}
+
+[hidden] {
+  display:none;
 }
 
 .content-license {
   line-height: 3rem;
-  margin-bottom: 6rem;
+  margin: 2em 0 6rem 0;
 }
 
 .u-photo {
@@ -283,17 +322,20 @@ figure {
 .indie-links {
   display: block;
   list-style: none;
-  margin: 0;
+  margin: 1rem 0 0 0;
 }
 
 .navigation-intro {
   color: #000;
-  display: contents;
+  display: block;
 }
 
-.indie-links .navigation-item {
-  float: inherit;
-  line-height: 2rem;
+.navigation-item {
+  margin-right: 1rem;
+}
+
+.indie-links .navigation-item, .indie-links .navigation-intro {
+  margin-right: 1rem;
 }
 
 .footnotes hr {
@@ -342,7 +384,6 @@ figure {
 }
 
 article.comment {
-  margin-bottom: 2rem;
   display: inline-grid;
   grid-template-columns: 7rem 3fr;
   width: 100%;
@@ -373,14 +414,14 @@ article.comment {
   margin-bottom: 0;
 }
 
-.comment-time{
+.comment-time {
   font-family: 'Roboto Condensed, sans-serif';
   font-weight: normal;
   margin-bottom: 1rem;
 }
 
-.comment-sep {
-  margin: 0 0 1.5rem 0;
+.post-sep {
+  margin: 3rem 0 5rem 0;
 }
 
 form .comment-email {
@@ -420,12 +461,6 @@ input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:fo
 
 	.tag-sep {
 		display: block;
-  }
-  
-  .navigation-intro {
-    color: #000;
-    display: block;
-    line-height: inherit;
   }
 
   .archive-grid {
