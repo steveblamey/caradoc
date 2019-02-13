@@ -6,8 +6,25 @@
 {{ $filter := (slice "in-reply-to" "mention-of") }}
 {{ with $mentions.children }}
 <hr/>
-<div class="article-comments">
+<div id="webmentions" class="article-comments">
     <h3>Webmentions</h3>
+    <div class="comments__header toggle-content is-visible">
+        <a class="toggle" href="#webmentions">{{ partial "icon-message-svg.html" }} Show All ({{ len $mentions.children }})</a>
+        <div class="authors">
+        {{ range first 3 (sort . "published") }}
+            {{ if (index . "wm-id") in $filter}}
+                {{ if ge (len .author.name) 1 }}
+        <div class="comment-avatar open" title="{{.author.name}}">{{ substr .author.name 0 1 }}</div>
+                {{ else }}
+        <div class="comment-avatar open" title="Anonymous">A</div>
+                {{ end }}
+            {{end}}
+        {{end}}
+        {{ if gt (len $mentions.children) 3 }}<span class="authors__more">+{{ sub (len $mentions.children) 3 }}</span>{{ end }}
+        </div>
+        <a class="comments__info" href="https://indieweb.org/Webmention" target="_blank" rel="noopener noreferrer">What's This?</a>
+    </div>
+    <div  class="comments__mentions toggle-content">
     {{ range sort . "published"}}
     {{ if (index . "wm-id") in $filter}}
     <article id="{{ index . "wm-id" }}" class="comment h-entry">
@@ -28,5 +45,6 @@
     </article>
     {{ end }}
     {{ end }}
+    </div>
 </div>
 {{ end }}

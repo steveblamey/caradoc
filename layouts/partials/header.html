@@ -4,29 +4,39 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>{{ if .IsHome }}{{ .Site.Title | lower | title }} - {{ .Site.Params.tagline }}{{ else }}{{ .Site.Title | lower | title }} - {{ .Title }}{{ end }}</title>
-	<meta name="title" content="{{ if $.IsHome }}{{ .Site.Title }} - {{ .Site.Params.tagline }}{{ else }}{{ .Site.Title }} - {{ .Title }}{{ end }}">
+	<title>{{ if .IsHome }}{{ .Site.Title | lower | title }} | {{ .Site.Params.tagline }}{{ else }}{{ .Site.Title | lower | title }} | {{ .Title }}{{ end }}</title>
 	<meta name="description" content="{{ if .Params.description }}{{ .Params.description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 	{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+	{{ if .Scratch.Get "twimage" }}
+	<meta property="og:title" content="{{ .Title }}">
+	<meta property="og:description" content="{{ .Params.description }}">
+	<meta property="og:url" content="{{ .URL | absURL }}">
+	<meta property="og:image" content="{{ with .Scratch.Get "twimage" }}{{ .RelPermalink | absURL }}{{ end }}">
+	{{ with .Params.twitter_alt }}<meta name="twitter:image:alt" content="{{ . }}">{{ end }}
+	<meta name="twitter:card" content="summary_large_image">
+	<meta property="og:site_name" content="{{ .Site.Title }} - {{ .Site.Params.tagline }}">
+	{{ end }}
 	<link rel="canonical" href="{{ .URL }}" />
-	<link rel="stylesheet" href="{{ .Site.BaseURL }}css/normalize.css">
-	<link rel="stylesheet" href="{{ .Site.BaseURL }}css/milligram.css">
-	<link rel="stylesheet" href="{{ .Site.BaseURL }}css/caradoc.css">
+	<link rel="stylesheet" href="{{ "/css/normalize.css" | absURL }}">
+	<link rel="stylesheet" href="{{ "/css/milligram.css" | absURL }}">
+	<link rel="stylesheet" href="{{ "css/caradoc.css"  | absURL }}">
 	<link rel="stylesheet" href="{{ .Site.BaseURL }}css/syntax.css">
-	<link href='{{ "/feed.xml" | relURL }}' rel="alternate" type="application/atom+xml" title="{{ .Site.Title }}" />
+	<link href='{{ "/feed.xml" | relURL }}' rel="alternate" type="application/atom+xml" title="{{ .Site.Title | lower | title }} | {{ .Site.Params.tagline }}" />
 	<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 
 	{{ with .Site.Params.WebMentionEndpoint }}<link rel="webmention" href="{{ . }}" />{{ end }}
 	{{ with .Site.Params.PingBackEndpoint }}<link rel="pingback" href="{{ . }}" />{{ end }}
 </head>
 <body>
-	<main class="wrapper">
+	<div class="wrapper">
+		<header>
 			<nav class="navigation">
 				<section class="container">
 					<div class="navigation-home"><a class="home-link" href="{{ .Site.BaseURL }}" rel="me"><strong>{{ upper .Site.Title }}</strong></a><span class="tag-sep">·</span><span class="tagline">{{ .Site.Params.tagline }}</span></div>
 					<ul class="navigation-list">
-						{{ range $i, $e := .Site.Menus.main.ByWeight }}{{ if $i }}<li class="navigation-item">·</li>{{ end }}<li class="navigation-item"><a href="{{ $e.URL | relURL }}">{{ $e.Name }}</a></li>{{ end }}
+						{{ range $i, $e := .Site.Menus.header.ByWeight }}{{ if $i }}<li class="navigation-item">·</li>{{ end }}<li class="navigation-item"><a href="{{ $e.URL | relURL }}">{{ $e.Name }}</a></li>{{ end }}
 					</ul>
 				</section>
 			</nav>
-			<section class="container">
+		</header>
+		<main class="container">

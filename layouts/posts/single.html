@@ -1,3 +1,7 @@
+{{with $source := $.Page.Resources.GetMatch (printf "*%s*" .Params.twitter)}}
+    {{ $img := $source.Fit "2300x600" }}
+    {{ $.Scratch.Set "twimage" $img }}
+{{end}}
 {{ partial "header.html" . }}
 <article class="post h-entry">
     <header>
@@ -16,6 +20,7 @@
     </header>
     <section class="e-content">
             {{ partial "toc.html" . }}
+            {{ with .Params.intro }}<p class="post__intro">{{ . }}</p>{{ end }}
             {{ .Content }}
     </section>
     <footer>
@@ -39,7 +44,7 @@
     </footer>
     {{ end }}
 </article>
-<nav class="post-navigation clearfix">
+<nav class="page-navigation clearfix">
 	{{ if .NextInSection }} <a class="float-left" href="{{.NextInSection.Permalink}}">← newer</a> {{ end }} {{ if .PrevInSection }} <a class="float-right" href="{{.PrevInSection.Permalink}}">older →</a> {{ end }}
 </nav>
 {{ partial "footer.html" . }}

@@ -1,36 +1,41 @@
-			</section>
-		</main>
-		<footer class="footer wrapper">
-			<div class="h-card container footer__inner">
-				<div hidden="">
-					<img class="u-photo" src="{{.Site.BaseURL}}{{ .Site.Params.AuthorPhoto }}"/>
-					<p class="p-note"></p>
+			</main>
+			<footer class="footer wrapper">
+				<div class="h-card container footer__inner">
+					<div hidden="">
+						{{ with .Site.Params.AuthorPhoto }}<img class="u-photo" src="{{ $.Site.BaseURL }}{{ . }}"/>{{ end }}
+						<p class="p-note">{{with .Site.Params.AuthorAbout }}{{ . }}{{ end }}</p>
+					</div>
+					<p class="footer__item">
+						&copy; {{ now.Year }}
+						<br>
+						<a class="p-name u-url" href="{{ .Site.BaseURL }}">{{ .Site.Params.Author }}</a>
+						{{ with .Site.Params.ContentLicense}}
+						<br>
+						{{ . }}
+						{{ end }}
+					</p>
+					<p class="footer__item">
+						Contact
+						<br>
+						<a class="u-email" href="mailto:{{ .Site.Params.AuthorEmail }}" rel="me">{{ .Site.Params.AuthorEmail }}</a>
+					</p>
+					<p class="footer__item">
+						Social
+						<br>
+						{{ range $i, $e := .Site.Params.profiles }}{{ if $i }} / {{ end }}<a href="{{ $e.URL }}" rel="me">{{ $e.site }}</a>{{ end }}
+					</p>
+					<p class="footer__item">
+						Links
+						<br>
+						{{ range $i, $e := .Site.Menus.footerlinks.ByWeight }}{{ if $i }} / {{ end }}<a href="{{ $e.URL | relURL }}">{{ $e.Name }}</a>{{ end }}
+					</p>
+					<p class="footer__item--right">
+						<br>
+						{{ partial "icon-feed-svg.html" }} <a href="/feed.xml">atom feed</a>
+					</p>
 				</div>
-				<p class="footer__item">
-					&copy; {{ now.Year }}
-					<br>
-					<a class="p-name u-url" href="{{ .Site.BaseURL }}">{{ .Site.Params.Author }}</a>
-					{{ with .Site.Params.ContentLicense}}
-					<br>
-					{{ . }}
-					{{ end }}
-				</p>
-				<p class="footer__item">
-					Contact
-					<br>
-					<a class="u-email" href="mailto:{{ .Site.Params.AuthorEmail }}" rel="me">{{ .Site.Params.AuthorEmail }}</a>
-				</p>
-				<p class="footer__item">
-					Social
-					<br>
-					{{ range $i, $e := .Site.Params.profiles }}{{ if $i }} / {{ end }}<a href="{{ $e.URL }}" rel="me">{{ $e.site }}</a>{{ end }}
-				</p>
-				<p class="footer__item">
-					Notes
-					<br>
-					{{ range $i, $e := .Site.Menus.secondary.ByWeight }}{{ if $i }} / {{ end }}<a href="{{ $e.URL | relURL }}">{{ $e.Name }}</a>{{ end }}
-				</p>
-			</div>
-		</footer>
+			</footer>
+		</div><!-- wrapper -->
+		<script type="text/javascript" src="{{ .Site.BaseURL }}js/caradoc.js"></script>
 	</body>
 </html>
