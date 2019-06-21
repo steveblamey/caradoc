@@ -182,7 +182,7 @@ figure {
 }
 
 .post__intro {
-    font-family: "Roboto, sans-serif";
+    font-family: Roboto, sans-serif;
     font-size: 2.6rem;
 }
 .postlist__item {
