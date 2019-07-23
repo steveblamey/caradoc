@@ -1,10 +1,10 @@
 {{ partial "header.html" . }}
 <h2>{{ partial "icon-tags-svg" }}Tags</h2>
 <ul class="archive-list terms-tags">
-    {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
-        {{ with $.Site.GetPage (printf "/tags/%s" $name) }}
-            <li><a href="{{ .Permalink }}">{{ $name }}</a></li>
-        {{ end }}
+    {{ range .Site.Taxonomies.tags }}
+        <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a></li>
+    {{ else }}
+        <p>No tags yet, stay calm...</p>
     {{ end }}
 </ul>
 {{ partial "footer.html" . }}
