@@ -122,8 +122,12 @@ a {
 }
 
 pre {
-    border-left: 0.3rem solid #991848;
+    border-left: unset;
     font-size: 1.6rem;
+}
+
+pre > code {
+    background-color: #272822;
 }
 
 hr {
@@ -501,6 +505,51 @@ select:focus {
     outline: 0;
 }
 
+:root {
+    --base:              #ffffff;
+    --bg-blend:          multiply;
+    --blur:              0px;
+    --fg-blend:          overlay;
+    --foreground:        #991848;
+    --opacity:           1;
+    --spacing:           0px;
+  }
+  .duotone .img-wrapper {
+    background-color:    var(--base);
+    display:             flex;
+    flex:                1 1 100%;
+    height:              100%;
+    overflow:            hidden;
+    padding:             var(--spacing);
+    position:            relative;
+  }
+  
+  .duotone .img-wrapper img {
+    filter:              grayscale(100%) contrast(1) blur(var(--blur));
+    flex:                1 0 100%;
+    height:              100%;
+    max-width:           100%;
+    mix-blend-mode:      var(--bg-blend);
+    object-fit:          cover;
+    opacity:             var(--opacity);
+    position:            relative;
+    width:               100%;
+  }
+  
+  .duotone .img-wrapper::before {
+    background-color:    var(--foreground);
+    bottom:              0;
+    content:             '';
+    height:              100%;
+    left:                0;
+    mix-blend-mode:      var(--fg-blend);
+    position:            absolute;
+    right:               0;
+    top:                 0;
+    width:               100%;
+    z-index:             1;
+  }
+
 /* Larger than mobile screen */
 @media (min-width: 40.0rem) {
     .navigation {
@@ -544,9 +593,5 @@ select:focus {
     .indie-links .navigation-item {
         float: left;
         line-height: inherit;
-    }
-
-    figure {
-        margin: 1em 40px;
     }
 }

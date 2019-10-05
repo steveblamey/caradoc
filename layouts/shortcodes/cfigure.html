@@ -1,5 +1,7 @@
 <figure {{ with .Get "class" }}class="{{.}}"{{ end -}}>
-    {{.Inner}}
+    <div class="img-wrapper">
+        {{.Inner}}
+    </div>
     <figcaption>
         <p>{{ .Get "figcaption" }}</p>
     </figcaption>
