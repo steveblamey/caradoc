@@ -1,4 +1,4 @@
-{{ $paginator := .Paginate (where .Pages "Type" "posts") }}
+{{ $paginator := .Paginate (where .Site.RegularPages "Type" "posts") }}
 <ol class="postlist">
 {{ range $paginator.Pages }}
     <li class="postlist__item">
