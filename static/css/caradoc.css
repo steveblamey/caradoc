@@ -165,12 +165,8 @@ figure {
 }
 
 .tagline {
-    margin-left: 1rem;
-}
-
-.tag-sep {
-    float: left;
-    display: block;
+    display: inline-block;
+    margin: 0 3rem 0 1rem;
 }
 
 .post__intro {
@@ -313,7 +309,7 @@ figure {
 }
 
 .navigation-item {
-    margin-right: 1rem;
+    margin: 0 1rem 0 0;
 }
 
 .indie-links .navigation-item,
