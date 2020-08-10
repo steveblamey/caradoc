@@ -166,7 +166,6 @@ figure {
 
 .tagline {
     display: inline-block;
-    margin: 0 3rem 0 1rem;
 }
 
 .post__intro {
@@ -259,6 +258,10 @@ figure {
 .navigation-home {
     flex: auto;
     margin: 0;
+}
+
+.navigation-home .tag-sep {
+    margin-right: 1rem;
 }
 
 .page-navigation {
