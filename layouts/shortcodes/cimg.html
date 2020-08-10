@@ -31,5 +31,5 @@
   {{ if ge $src.Width "1500" }}
     {{- with $large.RelPermalink }}, {{.}} 1500w {{ end -}}
   {{ end }}"
-  {{- if .Get $medium }} src="{{ $medium.RelPermalink }}" {{ else }} src="{{ $src.RelPermalink }}" {{ end -}}
+  {{- if .Get (print $medium) }} src="{{ $medium.RelPermalink }}" {{ else }} src="{{ $src.RelPermalink }}" {{ end -}}
   {{ with .Get "alt" }}alt='{{.}}'{{ end }}></a>
