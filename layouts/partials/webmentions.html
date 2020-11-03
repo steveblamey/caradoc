@@ -12,7 +12,7 @@
         <a class="toggle" href="#webmentions">{{ partial "icon-message-svg.html" }} Show All ({{ len $mentions.children }})</a>
         <div class="authors">
         {{ range first 3 (sort . "published") }}
-            {{ if (index . "wm-id") in $filter}}
+            {{ if in (index . "wm-id") $filter}}
                 {{ if ge (len .author.name) 1 }}
         <div class="comment-avatar open" title="{{.author.name}}">{{ substr .author.name 0 1 }}</div>
                 {{ else }}
@@ -26,7 +26,7 @@
     </div>
     <div  class="comments__mentions toggle-content">
     {{ range sort . "published"}}
-    {{ if (index . "wm-id") in $filter}}
+    {{ if in (index . "wm-id") $filter}}
     <article id="{{ index . "wm-id" }}" class="comment h-entry">
         {{ if ge (len .author.name) 1 }}
         <div class="comment-avatar open">{{ substr .author.name 0 1 }}</div>
