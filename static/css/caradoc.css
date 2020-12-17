@@ -458,7 +458,6 @@ article.comment {
 }
 
 .comment-time {
-    font-family: "Roboto Condensed, sans-serif";
     font-weight: normal;
     margin-bottom: 1rem;
 }
@@ -531,7 +530,7 @@ select:focus {
 
 /* Links: replicate underline that clears descenders */
 article p a:link,
-article a:visited {
+article p a:visited {
     color: inherit; 
 }
 
