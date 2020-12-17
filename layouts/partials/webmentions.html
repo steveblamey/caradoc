@@ -3,7 +3,7 @@
 {{ $value_target := .RelPermalink }}
 {{ $value_token := getenv "WEBM_TOKEN" }}
 {{ $mentions := getJSON "https://webmention.io/api/mentions.jf2" $param_target .Site.Params.WebMentionTargetSite $value_target $param_token $value_token }}
-{{ $filter := (slice "in-reply-to" "mention-of") }}
+{{ $filter := "in-reply-to mention-of" }}
 {{ with $mentions.children }}
 <hr/>
 <div id="webmentions" class="article-comments">
@@ -12,7 +12,7 @@
         <a class="toggle" href="#webmentions">{{ partial "icon-message-svg.html" }} Show All ({{ len $mentions.children }})</a>
         <div class="authors">
         {{ range first 3 (sort . "published") }}
-            {{ if in (index . "wm-id") $filter}}
+            {{ if in $filter (index . "wm-property")}}
                 {{ if ge (len .author.name) 1 }}
         <div class="comment-avatar open" title="{{.author.name}}">{{ substr .author.name 0 1 }}</div>
                 {{ else }}
@@ -26,7 +26,7 @@
     </div>
     <div  class="comments__mentions toggle-content">
     {{ range sort . "published"}}
-    {{ if in (index . "wm-id") $filter}}
+    {{ if in $filter (index . "wm-property")}}
     <article id="{{ index . "wm-id" }}" class="comment h-entry">
         {{ if ge (len .author.name) 1 }}
         <div class="comment-avatar open">{{ substr .author.name 0 1 }}</div>
