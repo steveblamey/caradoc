@@ -19,7 +19,7 @@ var mentionsVisiblity = function() {
     var header = document.querySelector('.comments__header.toggle-content');
     if (!content && !header) return;
 
-    if (location.hash == '#webmentions') {
+    if (location.hash == '#webmentions' || location.hash.includes('#')) {
         hide(header);
         show(content);
     } else {
