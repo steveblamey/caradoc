@@ -5,12 +5,14 @@
 {{ $filter := "&wm-property[]=in-reply-to&wm-property[]=repost-of" }}
 {{ $mentions := getJSON "https://webmention.io/api/mentions.jf2" $param_target .Site.Params.WebMentionTargetSite $value_target $param_token $value_token $filter}}
 {{ $likes := getJSON "https://webmention.io/api/mentions.jf2" $param_target .Site.Params.WebMentionTargetSite $value_target $param_token $value_token "&wm-property=like-of"}}
-{{ with $mentions.children }}
+{{ $allmentions := getJSON "https://webmention.io/api/mentions.jf2" $param_target .Site.Params.WebMentionTargetSite $value_target $param_token $value_token "&wm-property[]=in-reply-to&wm-property[]=repost-of&wm-property[]=like-of"}}
+{{ with $allmentions.children }}
 <hr/>
 <div id="webmentions" class="article-comments">
     <h3>Webmentions</h3>
+    {{ with $allmentions.children }}
     <div class="comments__header toggle-content is-visible">
-        <a class="toggle" href="#webmentions">{{ partial "icon-message-svg.html" }} Show All ({{ add (len $mentions.children) (len $likes.children)  }})</a>
+        <a class="toggle" href="#webmentions">{{ partial "icon-message-svg.html" }} Show All ({{ len $allmentions.children  }})</a>
         <div class="authors">
         {{ range first 3 (sort . "published") }}
             {{ if ge (len .author.name) 1 }}
@@ -19,13 +21,15 @@
         <div class="comment-avatar open" title="Anonymous">A</div>
             {{ end }}
         {{end}}
-        {{ if gt (len $mentions.children) 3 }}<span class="authors__more">+{{ sub (len $mentions.children) 3 }}</span>{{ end }}
+        {{ if gt (len $allmentions.children) 3 }}<span class="authors__more">+{{ sub (len $allmentions.children) 3 }}</span>{{ end }}
         </div>
         <a class="comments__info" href="https://indieweb.org/Webmention" target="_blank" rel="noopener noreferrer">What's This?</a>
     </div>
+    {{ end }}
+    {{ with $mentions.children }}
     <div  class="comments__mentions toggle-content">
-    {{ range sort . "published"}}
-    <article id="{{ index . "wm-id" }}" class="comment h-entry {{(index . "wm-property")}}">
+    {{ range sort . "published" "desc" }}
+    <article id="{{ (index . "wm-id") | md5 }}" class="comment h-entry {{ (index . "wm-property") }}">
         {{ if ge (len .author.name) 1 }}
         <div class="comment-avatar open">{{ substr .author.name 0 1 | upper}}</div>
             <div class="comment-body">
@@ -36,18 +40,18 @@
                 <h4 class="comment-author p-author">Anonymous</h4>
         {{ end }}
             <div class="comment-time">
-                <a href="#{{ index . "wm-id" }}" class="u-url" title="Comment permalink">#</a> <time class="comment-date dt-published" datetime="{{ .published }}">{{ with .published }}{{ dateFormat "2 Jan 2006 15:04" (time .).Local }}{{ end }}</time>
+                <a href="#{{ index . "wm-id" | md5 }}" class="u-url" title="Comment permalink">#</a> <time class="comment-date dt-published" datetime="{{ .published }}">{{ with .published }}{{ dateFormat "2 Jan 2006 15:04" (time .).Local }}{{ end }}</time>
             </div>
             <p class="e-content">{{ .content.text }}</p>
         </div>
     </article>
     {{ end }}
-    {{ with $likes.children }}
-    
+    {{ end }}
+    {{ with $likes.children }}  
     <div class="comments__likes comment">
         <h4>Likes</h4>
             <div>
-            {{ range first 10 (sort . "published") }}
+            {{ range first 10 (sort . "published" "desc") }}
                 {{ if ge (len .author.name) 1 }}
             <div class="comment-avatar open" title="{{.author.name}}"><a class="u-url" href="{{ .url }}">{{ substr .author.name 0 1 | upper}}</a></div>
                 {{ else }}
