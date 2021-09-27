@@ -418,7 +418,7 @@ input[type="submit"] {
     color: #991848;
 }
 
-article.comment {
+article.comment, .comments__likes {
     display: inline-grid;
     grid-template-columns: 7rem 3fr;
     width: 100%;
@@ -430,6 +430,10 @@ article.comment {
 
 .toggle-content.is-visible {
     display: flex;
+}
+
+.comments__mentions.toggle-content.is-visible {
+    display: block;
 }
 
 .comment-avatar {
