@@ -561,9 +561,12 @@ article p a:link {
     }
 
     .archive-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-column-gap: 10%;
+        columns: 2;
+        column-gap: 10%;
+    }
+
+    .archive-year {
+        break-inside: avoid;
     }
 
     .indie-links {
