@@ -14,7 +14,7 @@
                 <h2>{{ .Key }}</h2>
                 <ul class="archive-list-annual">
                     {{ range .Pages }}
-                    <li><a href="{{ .Permalink }}">{{ .Title }}</a> {{ if .Params.description }} {{ .Params.description }}{{ end }}</li>
+                    <li><a href="{{ .Permalink }}">{{.Date.Format "Jan 2"}} - {{ .Title }}</a> {{ if .Params.description }} {{ .Params.description }}{{ end }}</li>
                     {{ end }}
                 </ul>
             </div>
@@ -22,5 +22,4 @@
     {{ end }}
     {{ end}}
     </div>
-    
 {{ partial "footer.html" . }}

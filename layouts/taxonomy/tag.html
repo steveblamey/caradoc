@@ -1,12 +1,12 @@
 {{ partial "header.html" . }}
 <p class="float-right">{{ partial "icon-tags-svg" }}<em>Browse <a href="/tags">all tags</a></em></p>
-<h2 class="post-title">Posts tagged &lsquo;{{ lower .Title }}&rsquo;</h2>
-<ol class="archive-list-tag">
+<h2 class="post-title">Posts tagged <em>{{ lower .Title }}</em></h2>
+<ul class="archive-list-tag">
   {{ range .Paginator.Pages }}
-    <li><a href="{{ .Permalink }}">{{ .Title }}</a>. {{ if .Params.description }} {{ .Params.description }}{{ end }}</li>
+    <li><a href="{{ .Permalink }}">{{.Date.Format "Jan 2, 2006"}} - {{ .Title }}</a>. {{ if .Params.description }} {{ .Params.description }}{{ end }}</li>
   {{ else }}
     <p>No tags yet, stay calm...</p>
   {{ end }}
-</ol>
+</ul>
 {{ partial "pagination.html" . }}
 {{ partial "footer.html" . }}
