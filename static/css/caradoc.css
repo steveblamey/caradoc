@@ -396,6 +396,10 @@ input[type="submit"] {
     cursor: default;
 }
 
+.comment-avatar img {
+    border-radius: 50%;
+}
+
 .authors {
     display: flex;
     flex-wrap: wrap;

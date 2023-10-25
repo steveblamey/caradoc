@@ -23,7 +23,6 @@
 	<link rel="stylesheet" href="{{ .Site.BaseURL }}css/syntax.css">
 	<link href='{{ "/index.xml" | relURL }}' rel="alternate" type="application/rss+xml" title="{{ .Site.Title | lower | title }} | {{ .Site.Params.tagline }}" />
 	<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
-
 	{{ with .Site.Params.WebMentionEndpoint }}<link rel="webmention" href="{{ . }}" />{{ end }}
 	{{ with .Site.Params.PingBackEndpoint }}<link rel="pingback" href="{{ . }}" />{{ end }}
 </head>
