@@ -21,6 +21,9 @@
 	<link rel="stylesheet" href="{{ "/css/milligram.min.css" | absURL }}">
 	<link rel="stylesheet" href="{{ "css/caradoc.css"  | absURL }}">
 	<link rel="stylesheet" href="{{ .Site.BaseURL }}css/syntax.css">
+	<link rel="preload" href="{{ "/fonts/hk/HKGrotesk-SemiBold.woff2" | absURL  }}" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="{{ "/fonts/hk/HKGrotesk-SemiBold.woff2" | absURL  }}" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="{{ "/fonts/hk/HKGrotesk-SemiBold.woff2" | absURL  }}" as="font" type="font/woff2" crossorigin>
 	<link href='{{ "/index.xml" | relURL }}' rel="alternate" type="application/rss+xml" title="{{ .Site.Title | lower | title }} | {{ .Site.Params.tagline }}" />
 	<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 	{{ with .Site.Params.WebMentionEndpoint }}<link rel="webmention" href="{{ . }}" />{{ end }}
