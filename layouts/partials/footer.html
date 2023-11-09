@@ -31,7 +31,7 @@
 					</p>
 					<p class="footer__item--right">
 						<br>
-						{{ partial "icon-feed-svg.html" }} {{ with .OutputFormats.Get "rss" -}} <a href="{{ .RelPermalink }}">RSS Feed</a>{{ end }}
+						{{ partial "icon-feed-svg.html" }} {{- with .Site.GetPage "/" }} {{ with .OutputFormats.Get "rss" -}}<a href="{{ .RelPermalink }}">RSS Feed</a>{{- end }}{{- end }}
 					</p>
 				</div>
 			</footer>

@@ -24,7 +24,7 @@
 	<link rel="preload" href="{{ "/fonts/hk/HKGrotesk-SemiBold.woff2" | absURL  }}" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="{{ "/fonts/hk/HKGrotesk-SemiBold.woff2" | absURL  }}" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="{{ "/fonts/hk/HKGrotesk-SemiBold.woff2" | absURL  }}" as="font" type="font/woff2" crossorigin>
-	<link href='{{ with .OutputFormats.Get "rss" -}}{{ .RelPermalink }}{{ end }}' rel="alternate" type="application/rss+xml" title="{{ .Site.Title | lower | title }} | {{ .Site.Params.tagline }}" />
+	<link href='{{ with .Site.GetPage "/" -}}{{ with .OutputFormats.Get "rss" -}}{{ .RelPermalink }}{{ end }}{{ end }}' rel="alternate" type="application/rss+xml" title="{{ .Site.Title | lower | title }} | {{ .Site.Params.tagline }}" />
 	<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 	{{ with .Site.Params.WebMentionEndpoint }}<link rel="webmention" href="{{ . }}" />{{ end }}
 	{{ with .Site.Params.PingBackEndpoint }}<link rel="pingback" href="{{ . }}" />{{ end }}
